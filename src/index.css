@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* XP-style loader with slow start + acceleration */
+@keyframes loading-bar-slow {
+  0% {
+    transform: translateX(-100%);
+  }
+  10% {
+    transform: translateX(-90%);
+  }
+  25% {
+    transform: translateX(-70%);
+  }
+  40% {
+    transform: translateX(-40%);
+  }
+  60% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(70%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loading-bar-slow {
+  animation: loading-bar-slow 2.5s ease-in-out infinite;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-out {
+  animation: fadeOut 0.6s ease-out forwards;
+}
