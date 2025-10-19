@@ -1,28 +1,23 @@
 import React from "react";
 import NavIcons from "../Common/NavIcons";
 import Taskbar from "../Common/Taskbar";
-import desktopVideo from "../../assets/desktop-bg.mp4"; // 👈 adjust path as needed
 
 const Desktop = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden text-white">
-      
+    <div className="relative h-screen w-full overflow-hidden text-white font-sans">
       {/* 🎥 Background Video */}
-      <video
-        src={desktopVideo}
-        autoPlay
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      />
 
-      {/* Left-side app icons */}
-      <div className="absolute left-6 top-8 flex flex-col gap-8 z-20">
+
+      {/* Optional dark overlay for contrast */}
+      <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none"></div>
+
+      {/* 💻 Desktop App Icons */}
+      <div className="absolute left-6 top-10 flex flex-col gap-10 z-20 animate-fade-in">
         <NavIcons />
       </div>
 
-      {/* Taskbar fixed at bottom */}
-      <div className="absolute bottom-0 w-full z-30">
+      {/* 🧭 Taskbar */}
+      <div className="absolute bottom-0 w-full z-30 animate-slide-up">
         <Taskbar />
       </div>
     </div>
