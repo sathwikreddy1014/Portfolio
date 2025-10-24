@@ -1,11 +1,25 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { FileDown } from "lucide-react";
 
 const Resume = () => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-8 py-12">
-      <h1 className="text-4xl font-bold mb-6">Resume</h1>
+    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-white flex flex-col items-center justify-center px-8 py-16">
+      <motion.h1
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-5xl font-bold mb-10 bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text"
+      >
+        Resume
+      </motion.h1>
 
-      <div className="max-w-3xl bg-gray-900 p-8 rounded-2xl shadow-lg">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="max-w-3xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl shadow-2xl"
+      >
         <h2 className="text-2xl font-semibold mb-4 text-blue-400">Experience</h2>
         <ul className="list-disc pl-5 text-gray-300 space-y-2">
           <li>Software Developer Intern at XYZ Company (2024)</li>
@@ -20,23 +34,29 @@ const Resume = () => {
 
         <h2 className="text-2xl font-semibold mt-6 mb-4 text-blue-400">Skills</h2>
         <div className="flex flex-wrap gap-3 text-gray-300">
-          <span className="bg-gray-800 px-3 py-1 rounded-full">React</span>
-          <span className="bg-gray-800 px-3 py-1 rounded-full">Node.js</span>
-          <span className="bg-gray-800 px-3 py-1 rounded-full">Python</span>
-          <span className="bg-gray-800 px-3 py-1 rounded-full">Tailwind</span>
-          <span className="bg-gray-800 px-3 py-1 rounded-full">AI/ML</span>
+          {["React", "Node.js", "Python", "Tailwind", "AI/ML"].map((skill) => (
+            <span
+              key={skill}
+              className="bg-blue-500/20 border border-blue-400/30 px-3 py-1 rounded-full text-sm text-blue-300"
+            >
+              {skill}
+            </span>
+          ))}
         </div>
 
-        <div className="mt-8 text-center">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="mt-8 text-center"
+        >
           <a
             href="/resume.pdf"
             download
-            className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 text-white px-6 py-3 rounded-lg font-medium transition"
           >
-            Download Resume
+            <FileDown size={18} /> Download Resume
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
