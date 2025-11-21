@@ -4,9 +4,9 @@ import Taskbar from "../Common/Taskbar";
 
 const Desktop = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden text-white font-sans">
+    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 ...">
       {/* 🎥 Background Video */}
-
+    
 
       {/* Optional dark overlay for contrast */}
       <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none"></div>

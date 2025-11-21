@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Menu,
   Wifi,
@@ -14,6 +15,7 @@ const Taskbar = () => {
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const update = () => {
@@ -33,6 +35,10 @@ const Taskbar = () => {
     const interval = setInterval(update, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const shutdown = () => {
+    navigate('/')
+  }
 
   return (
     <>
@@ -100,7 +106,7 @@ const Taskbar = () => {
               ))}
             </div>
 
-            <button className="flex items-center gap-2 mt-4 w-full bg-red-500/80 hover:bg-red-500 rounded-lg py-2 transition">
+            <button className="flex items-center gap-2 mt-4 w-full bg-red-500/80 hover:bg-red-500 rounded-lg py-2 transition" onClick={shutdown} >
               <Power size={16} /> <span>Shut Down</span>
             </button>
           </motion.div>
