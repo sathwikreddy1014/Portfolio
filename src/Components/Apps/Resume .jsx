@@ -1,62 +1,67 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FileDown } from "lucide-react";
+import { Hammer, HardHat, ArrowLeft, Mail } from "lucide-react";
 
 const Resume = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-white flex flex-col items-center justify-center px-8 py-16">
-      <motion.h1
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-5xl font-bold mb-10 bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text"
-      >
-        Resume
-      </motion.h1>
+    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-white flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+      
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      </div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="max-w-3xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl shadow-2xl"
+        transition={{ duration: 0.6 }}
+        className="relative z-10 max-w-2xl p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl"
       >
-        <h2 className="text-2xl font-semibold mb-4 text-blue-400">Experience</h2>
-        <ul className="list-disc pl-5 text-gray-300 space-y-2">
-          <li>Software Developer Intern at XYZ Company (2024)</li>
-          <li>Built full-stack apps with React, Node.js, and MongoDB</li>
-          <li>Developed AI-based outfit recommendation system</li>
-        </ul>
+        <motion.div 
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            delay: 0.2 
+          }}
+          className="mx-auto bg-gradient-to-br from-blue-500/20 to-cyan-500/20 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 border border-white/10"
+        >
+          <HardHat className="text-blue-400" size={40} />
+        </motion.div>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-4 text-blue-400">Education</h2>
-        <p className="text-gray-300">
-          B.Tech in Computer Science — ABC University, 2021–2025
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
+          Work in Progress
+        </h1>
+        
+        <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+          I am currently refining my resume to include my latest projects, architectural decisions, and technical milestones. Excellence takes a little time.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-4 text-blue-400">Skills</h2>
-        <div className="flex flex-wrap gap-3 text-gray-300">
-          {["React", "Node.js", "Python", "Tailwind", "AI/ML"].map((skill) => (
-            <span
-              key={skill}
-              className="bg-blue-500/20 border border-blue-400/30 px-3 py-1 rounded-full text-sm text-blue-300"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="mt-8 text-center"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="/resume.pdf"
-            download
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 text-white px-6 py-3 rounded-lg font-medium transition"
+            href="/"
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-gray-300 hover:text-white w-full sm:w-auto justify-center"
           >
-            <FileDown size={18} /> Download Resume
+            <ArrowLeft size={18} />
+            <span>Back Home</span>
           </a>
-        </motion.div>
+          
+          <a
+            href="mailto:sathwikreddy1014@gmail.com"
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-medium shadow-lg shadow-blue-500/20 transition-all w-full sm:w-auto justify-center"
+          >
+            <Mail size={18} />
+            <span>Request Copy via Email</span>
+          </a>
+        </div>
       </motion.div>
+
+      <p className="absolute bottom-8 text-gray-600 text-sm font-medium uppercase tracking-widest">
+        Coming Soon
+      </p>
     </div>
   );
 };
